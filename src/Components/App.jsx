@@ -256,6 +256,7 @@ class App extends React.Component {
 							type="text"
 							placeholder="Add New Task"
 							className="p-2"
+							value={this.state.newTodo}
 							onChange={this.newTodoTextChange.bind(this)} />
 						<InputGroup.Append>
 							<Button variant="success" onClick={this.addTodo.bind(this)}>Add</Button>
