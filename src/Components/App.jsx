@@ -30,7 +30,7 @@ class App extends React.Component {
 		}
 
 		this.state.todoList.push(card);
-		this.setState({todoList: this.state.todoList});
+		this.setState({todoList: this.state.todoList, newTodo: ""});
 	}
 
 	newTodoTextChange(e) {
