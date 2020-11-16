@@ -16,6 +16,8 @@ A Todo List app with CRUD functionality created using react. The user can also m
 
 ---
 
-Created By [Mayank Phadke](https://mayank-phadke.github.io/react-to-do/)
+Created By [Mayank Phadke](https://mayank-phadke.github.io)
 
-Deployed using [react-gh-pages](https://github.com/gitname/react-gh-pages)
+Deployed to [React Todo](https://mayank-phadke.github.io/react-to-do)
+
+Deployed using [Github Pages](https://pages.github.com/) and [react-gh-pages](https://github.com/gitname/react-gh-pages)
