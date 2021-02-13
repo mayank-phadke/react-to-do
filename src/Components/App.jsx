@@ -272,6 +272,15 @@ class App extends React.Component {
 		this.checkSelectedCompleted();
 	}
 
+	handleKeyPress(e) {
+		// check if enter pressed
+		if(e.charCode !== 13) {
+			return;
+		}
+
+		this.addTodo(e);
+	}
+
 	render() {
 		return (
 			<div className="App pb-5">
@@ -285,7 +294,8 @@ class App extends React.Component {
 							placeholder="Add New Task"
 							className="p-2"
 							value={this.state.newTodo}
-							onChange={this.newTodoTextChange.bind(this)} />
+							onChange={this.newTodoTextChange.bind(this)}
+							onKeyPress={this.handleKeyPress.bind(this)} />
 						<InputGroup.Append>
 							<Button variant="success" onClick={this.addTodo.bind(this)}>Add</Button>
 						</InputGroup.Append>
