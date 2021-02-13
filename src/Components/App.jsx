@@ -21,6 +21,13 @@ class App extends React.Component {
 	}
 
 	addTodo(e) {
+
+		// check for empty input
+		if(this.state.newTodo.trim() === "") {
+			return;
+		}
+
+		// create new card with given label
 		let card = {
 			title: this.state.newTodo,
 			checked: false,
@@ -29,7 +36,10 @@ class App extends React.Component {
 			id: this.uniqueId++
 		}
 
+		// add card to the list
 		this.state.todoList.push(card);
+
+		// update state and set input as empty
 		this.setState({todoList: this.state.todoList, newTodo: ""});
 	}
 
