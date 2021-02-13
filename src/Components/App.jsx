@@ -17,7 +17,15 @@ class App extends React.Component {
 			completedFlag: false
 		}
 
+		// create a reference for the input so we can focus on it later
+		this.newTodoRef = React.createRef();
+
 		this.checkSelectedCompleted.bind(this);
+	}
+
+	componentDidMount() {
+		// focus on the input when the page loads
+		this.newTodoRef.current.focus();
 	}
 
 	addTodo(e) {
@@ -41,6 +49,9 @@ class App extends React.Component {
 
 		// update state and set input as empty
 		this.setState({todoList: this.state.todoList, newTodo: ""});
+
+		// focus on the input
+		this.newTodoRef.current.focus();
 	}
 
 	newTodoTextChange(e) {
@@ -290,6 +301,7 @@ class App extends React.Component {
 				<Container>
 					<InputGroup>
 						<FormControl
+							ref={this.newTodoRef}
 							type="text"
 							placeholder="Add New Task"
 							className="p-2"
