@@ -15,7 +15,7 @@ class TodoCard extends React.Component {
     }
 
     handleDelete(e) {
-        this.props.onDelete(this.props)
+        this.props.onDelete(this.props.id)
     }
 
     handleEdit() {
@@ -88,11 +88,18 @@ class TodoCard extends React.Component {
                                 }
                                 {
                                     !this.props.edit &&
+                                    this.props.complete ?
                                     <Button
-                                        variant="outline-info"
+                                        variant="outline-success"
                                         className="float-right"
                                         onClick={this.handleComplete.bind(this)}>
-                                        <i className="fa fa-eye" />
+                                        <i className="far fa-times-circle" />
+                                    </Button> : 
+                                    <Button
+                                        variant="outline-success"
+                                        className="float-right"
+                                        onClick={this.handleComplete.bind(this)}>
+                                        <i className="far fa-check-circle" />
                                     </Button>
                                 }
                             </Col>

@@ -69,8 +69,26 @@ class App extends React.Component {
 		this.checkSelectedCompleted();
 	}
 
-	onDelete(propsObj) {
-		this.state.todoList.splice(propsObj, 1);
+	onDelete(id) {
+		// find the object in array
+		let delObj = this.state.todoList.find((todo) => {
+			return todo.id === id
+		});
+
+		if(delObj === undefined) {
+			console.log("obj is undefined");
+			return;
+		}
+
+		// find and check the index of the object
+		let index = this.state.todoList.indexOf(delObj);
+		if(index === -1) {
+			console.log("index in -1: Object not found in array");
+			return;
+		}
+
+		// delete 1 object at 'index'
+		this.state.todoList.splice(index, 1);
 		this.setState({todoList: this.state.todoList});
 		this.checkSelectedCompleted();
 	}
@@ -304,7 +322,7 @@ class App extends React.Component {
 										<Button
 											variant="info"
 											size="sm"
-											className="text-light ml-auto"
+											className="text-light ml-auto d-none d-sm-inline"
 											disabled={!this.state.completedFlag}
 											onClick={this.deleteCompleted.bind(this)}
 										>
