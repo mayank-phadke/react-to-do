@@ -295,10 +295,11 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App pb-5">
-				<Jumbotron className="text-center mb-2">
+				<div className="text-center mb-2 bg-dark text-light py-4 mb-4">
 					<h1>To-Do List</h1>
-				</Jumbotron>
-				<Container>
+					Developed By: <a className="text-light" href="https://mayank-phadke.github.io/"><u>Mayank Phadke</u></a>
+				</div>
+				<Container fluid>
 					<InputGroup>
 						<FormControl
 							ref={this.newTodoRef}
@@ -313,7 +314,7 @@ class App extends React.Component {
 						</InputGroup.Append>
 					</InputGroup>
 				</Container>
-				<Container className="mt-3">
+				<Container fluid className="mt-3">
 					{
 						this.state.todoList.length > 0 ?
 							<Card className="mb-2">
@@ -364,7 +365,11 @@ class App extends React.Component {
 								</Card.Body>
 							</Card>
 							:
-							""
+							<Card className="py-5">
+								<div className="d-flex justify-content-center">
+									<em>Add a TODO item to start</em>
+								</div>
+							</Card>
 					}
 					{
 						this.state.todoList.map((obj) =>
